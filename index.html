@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<title>angular-formly</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css"
+	href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+<script type="text/javascript"
+	src="node_modules/api-check/dist/api-check.js"></script>
+<script type="text/javascript" src="node_modules/angular/angular.js"></script>
+<script type="text/javascript"
+	src="node_modules/angular-formly/dist/formly.js"></script>
+<script type="text/javascript"
+	src="node_modules/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="scripts/MainController.js"></script>
+<script type="text/javascript" src="scripts/Province.js"></script>
+
+</head>
+<body ng-app="angularFormlyApp" ng-controller="MainController as vm">
+
+	<form novalidate>
+		<h1>Person Details</h1>
+		<formly-form model="vm.person" fields="vm.personFields"
+			form="vm.personForm">
+		<button type="submit" class="btn btn-primary"
+			ng-disabled="vm.personForm.$invalid">Submit</button>
+		</formly-form>
+	</form>
+
+
+</body>
+</html>
