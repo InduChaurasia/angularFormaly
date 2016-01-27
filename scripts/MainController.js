@@ -4,12 +4,13 @@
 
 	angularFormlyApp.controller('MainController', function($scope, province) {
 
-		var vm = this;
+		$scope.personDetails = {};
+		$scope.personAddress = {};
 
-		vm.person = {};
-
-		vm.personFields = [ {
-			key : 'first_name',
+	$scope.personFields = {
+			step1: [
+			{
+			key : 'firstName',
 			type : 'input',
 			templateOptions : {
 				type : 'text',
@@ -18,7 +19,7 @@
 				required : true
 			}
 		}, {
-			key : 'last_name',
+			key : 'lastName',
 			type : 'input',
 			templateOptions : {
 				type : 'text',
@@ -26,7 +27,9 @@
 				placeholder : 'Enter your last name',
 				required : true
 			}
-		}, {
+		},
+
+		 {
 			key : 'email',
 			type : 'input',
 			templateOptions : {
@@ -35,18 +38,66 @@
 				placeholder : 'Enter email',
 				required : true
 			}
-		}, {
+		},
+
+		{
+		 key : 'dateOfBirth',
+		 type : 'input',
+		 templateOptions : {
+			 type : 'date',
+			 label : 'Date of birth',
+			 placeholder : 'date of birth ',
+			 required : true
+		 	}
+		},
+
+		{
+			key: 'height',
+			type: 'input',
+			templateOptions:{
+				type: 'number',
+				label: 'Height',
+				placeholder: 'Enter height',
+				required: true
+			}
+		},
+
+		{
+			key: 'weight',
+			type: 'input',
+			templateOptions:{
+				type: 'number',
+				label: 'Weight',
+				placeholder: 'Enter weight',
+				required: true
+			}
+	}
+
+
+	],
+ step2:[
+	 	{
+			key: 'address'
+			type: 'textarea',
+			templateOptions : {
+				type: 'text',
+				required: true,
+				label: 'Full address',
+				placeholder : 'Enter your full address',
+			}
+		},
+		{
 			key : 'province',
-			type : 'select',
+			type : 'typeahead',
 			templateOptions : {
 				label : 'Province',
 				options : province.getProvinces()
-			},
-			hideExpression : '!model.email',
+			}
 		}
-
-		];
+	]
+};
 
 	})
+
 
 })();
